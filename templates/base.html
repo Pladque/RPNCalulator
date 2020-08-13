@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RPN Calculator</title>
+</head>
+<body>
+<div id = "container">
+    <div id = "content">
+        <h1> Enter an equation </h1>
+        <form  method = "POST">
+            {% csrf_token %}
+            <input name="equation" placeholder="for example: 2.5+2-(9-77*15)/3">
+            <br>
+            <button type = "submit">Calc</button>
+       </form>
+
+        <div id="results_holder">
+            Result:
+            <br>
+            <div style = "color: {{color_css}}">   {{ input_equation }} =  {{ equation_result }}</div>
+            <br>
+            In reverse polish notation:
+            <br>
+            <div style = "color: {{color_css}}">   {{ equation_in_RPN }} </div>
+            <br>
+        </div>
+
+        <div id="rules">
+            <br>
+            Allowed operators: +, -, *, / <br>
+            The script supports parentheses (   ) <br>
+            The script doesn't support letters <br>
+            For decimal fractions you can use dot . <br>
+            White spaces are ignored<br>
+            <br>
+        </div>
+    </div>
+</div>
+</body>
+<style>
+body{
+    background-color: ##c2bba7;
+}
+
+
+input{
+    width:50%;
+    min-width: 300px;
+    height:30px;
+    font-size: 28px;
+}
+
+button{
+    margin-top: 10px;
+    width:100px;
+    height:30px;
+    font-size: 24px;
+}
+
+#container{
+    background-color: #ffde82;
+     width: 80%;
+     min-width: 540px;
+     max-width:1200px;
+     margin: 0 auto;
+     border: 2px solid black;
+     margin-top:10%;
+     text-align: center;
+     min-height: 400px;
+}
+
+#content{
+    margin:60px;
+}
+
+#results_holder{
+    margin-top: 30px;
+    font-size: 32px;
+}
+</style>
+</html>
