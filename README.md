@@ -1,5 +1,7 @@
 # RPNCalulator
 
-What i've learned:
--how RPN works
--how try except works
+New skills:
+
+-RPN implementation
+
+-usage of "try, except"
