@@ -1,15 +1,21 @@
+import math
 # STATIC VARIABLES #
 OPERATION_SYMBOLS ={
     'dzielenie': '/',
     'mnozenie': '*',
     'dodawanie': '+',
     'odejmowanie': '-',
+    'pierwiastowanie': '$',
+    'potegowanie': '^',
+    #'logarytmowanie': 'L',
 }
 OTHER_SYMBOLS = {
     'left_bracket': '(',
     'rigt_bracket': ')',
 }
 PRIORITY = {
+    '^': 4,
+    '$': 4,
     '*': 3,
     '/': 3,
     '+': 2,
@@ -183,6 +189,10 @@ def do_math(operation_symbol, number1, number2):
         return float(number2) + float(number1)
     if operation_symbol == '-':
         return float(number2) - float(number1)
+    if operation_symbol == '^':
+        return pow(float(number2),float(number1))
+    if operation_symbol == '$':
+        return pow(float(number1), 1/float(number2))
 
 
 # this function prepares equation to convert to RPN and converting it
